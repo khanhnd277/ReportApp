@@ -1,0 +1,59 @@
+<!--
+  Generated template for the SalereportPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sale Report</ion-title>
+  </ion-navbar>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</ion-header>
+
+<ion-content padding>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+        <tr>
+          <th class="col textCenter">#</th>
+          <th class="col textCenter">BRANCH</th>
+          <th class="col textCenter">No of SA</th>
+          <th class="col textCenter">HOB</th>
+          <th class="col textCenter">AHOB</th>
+          <th class="col textCenter">OFFICE ADMIN</th>
+          <th class="col textRight">CARRY FORWARD (A)</th>
+          <th class="col textRight">BOOKING TARGET</th>
+          <th class="col textRight">BOOKING COLLECT (B)</th>
+          <th class="col textRight">TOTAL BOOKING (A+B)</th>
+          <th class="col textRight">CANCEL</th>
+          <th class="col textRight">FI TARGET</th>
+          <th class="col textRight">FINAL FI</th>
+          <th class="col textRight">%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listResults">
+          <td class="col textCenter">{{item.index}}</td>
+          <td class="col textCenter">{{item.branch}}</td>
+          <td class="col textCenter">{{item.noOfSA}}</td>
+          <td class="col textCenter">{{item.HOB}}</td>
+          <td class="col textCenter">{{item.AHOB}}</td>
+          <td class="col textCenter">{{item.officeAdmin}}</td>
+          <td class="col textRight">{{item.carryForward}}</td>
+          <td class="col textRight">{{item.bookingTarget}}</td>
+          <td class="col textRight">{{item.bookingCollect}}</td>
+          <td class="col textRight">{{item.bookingTotal}}</td>
+          <td class="col textRight">{{item.cancelNo}}</td>
+          <td class="col textRight">{{item.targetFI}}</td>
+          <td class="col textRight">{{item.finalFI}}</td>
+          <td class="col textRight">{{item.percent}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ion-content>
