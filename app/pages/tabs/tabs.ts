@@ -4,6 +4,9 @@ import {AboutPage} from '../about/about';
 import {ContactPage} from '../contact/contact';
 import {SalereportPage} from '../salereport/salereport';
 
+import {Page} from 'ionic-angular';
+
+
 @Component({
   templateUrl: 'build/pages/tabs/tabs.html'
 })

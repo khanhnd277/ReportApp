@@ -1,25 +1,50 @@
-import {Component} from '@angular/core';
-import {Platform, ionicBootstrap} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {Platform, ionicBootstrap, MenuController, NavController} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
+
+import {HomePage} from './pages/home/home';
+import {ContactPage} from './pages/contact/contact';
+import {AboutPage} from './pages/about/about';
+import {SalereportPage} from './pages/salereport/salereport';
 import {TabsPage} from './pages/tabs/tabs';
+
+import * as helpers from './directives/helper';
 
 
 @Component({
-  template: '<ion-nav [root]="rootPage"></ion-nav>'
+  templateUrl: 'build/app.html',
+  providers: [NavController]
 })
 export class MyApp {
-
+  @ViewChild('myNav') nav: NavController;
   private rootPage: any;
+  private pages: any[];
 
-  constructor(private platform: Platform) {
+  constructor(private platform: Platform, private menu: MenuController) {
+    menu.enable(true);
+    this.pages = [
+      { title: 'Home', component: HomePage },
+      { title: 'Contact', component: ContactPage },
+      { title: 'About', component: AboutPage },
+      { title: 'Sale Report', component: SalereportPage }
+    ];
+
     this.rootPage = TabsPage;
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
+      StatusBar.styleDefault;
     });
   }
+
+  openPage(page) {
+    this.menu.close()
+    // Using this.nav.setRoot() causes
+    // Tabs to not show!
+    //this.nav.push(page.component);
+    helpers.debounce(this.nav.setRoot(page.component), 60, false);
+  };
 }
 
 ionicBootstrap(MyApp);
