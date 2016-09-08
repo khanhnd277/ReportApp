@@ -13,21 +13,21 @@
     <ion-title>Sale Report</ion-title>
   </ion-navbar>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 </ion-header>
 
 <ion-content padding>
   <div class="div-resposive" style="width:100%;overflow:auto;padding:10px;">
   <div class="reponsive-sm">
-    <table class="table">
+    <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th class="col textCenter">#</th>
+          
           <th class="col textCenter">BRANCH</th>
           <th class="col textCenter">No of SA</th>
-          <th class="col textCenter" (click)="getInfo()">HOB</th>
+          <th class="col textCenter">HOB</th>
           <th class="col textCenter">AHOB</th>
           <th class="col textCenter">OFFICE ADMIN</th>
           <th class="col textRight">CARRY FORWARD (A)</th>
@@ -41,12 +41,13 @@
         </tr>
       </thead>
       <tbody>
+        <!-- <div ng-if=""="name=='John'"> -->
         <tr *ngFor="let item of listResults">
-          <td class="col textCenter">{{item.index}}</td>
+          
           <td class="col textCenter">{{item.branch}}</td>
           <td class="col textCenter">{{item.noOfSA}}</td>
-          <td class="col textCenter">{{item.HOB}}</td>
-          <td class="col textCenter">{{item.AHOB}}</td>
+          <td class="col textCenter" (click)="getInfoHOB(item.HOB)">{{item.HOB.name}}</td>
+          <td class="col textCenter" (click)="getInfoHOB(item.AHOB)">{{item.AHOB.name}}</td>
           <td class="col textCenter">{{item.officeAdmin}}</td>
           <td class="col textRight">{{item.carryForward}}</td>
           <td class="col textRight">{{item.bookingTarget}}</td>
