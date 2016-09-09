@@ -1,56 +1,56 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Description
-    </ion-title>
-    <ion-buttons start>
-      <button (click)="dismiss()">
+    <ion-toolbar>
+        <ion-title>
+            Information
+        </ion-title>
+        <ion-buttons start>
+            <button (click)="dismiss()">
         <ion-icon name="md-close"></ion-icon>
       </button>
-    </ion-buttons>
-  </ion-toolbar>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="list card margin-top-20">
-    <div class="item item-avatar">
-      <div class="box-img">
-        <img class="img-responsive" src="./img/{{user.image}}">
-      </div>
-    </div>
-    <div class="item item-body">
-      <div class="list list-info card">
-        <!--<div class="item input-group">
-          <span for="Name">Name</span><br>
-          <input type="text" name="Name" class="input-field form-control" value="haidang">
+    <div class="list card margin-top-20">
+        <div class="row padding-20">
+            <div class="col-sm-4">
+                <div class="item item-avatar">
+                    <div class="box-img">
+                        <img class="img-responsive" src="./img/{{user.image}}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <ion-item>
+                        Name
+                        <ion-note item-right>
+                            {{user.name}}
+                        </ion-note>
+                    </ion-item>
+                </div>
+                <div class="row">
+                    <ion-item>
+                        Email
+                        <ion-note item-right>
+                            {{user.email}}
+                        </ion-note>
+                    </ion-item>
+                </div>
+                <div class="row">
+
+                    <ion-item>
+                        Mobile
+                        <ion-note item-right>
+                            {{user.mobile}}
+                        </ion-note>
+                    </ion-item>
+                </div>
+
+            </div>
         </div>
-        <div class="item input-group">
-          <span for="Phone">Phone</span><br>
-          <input type="text" class="input-field form-control" name="Phone" value="0976541231">
-        </div>-->
-        <ion-item>
-          Name
-          <ion-note item-right>
-            {{user.name}}
-          </ion-note>
-        </ion-item>
-        <ion-item>
-          Email
-          <ion-note item-right>
-            {{user.email}}
-          </ion-note>
-        </ion-item>
-        <ion-item>
-          Mobile
-          <ion-note item-right>
-            {{user.mobile}}
-          </ion-note>
-        </ion-item>
-      </div>
-      <div class="item">
-      </div>
     </div>
-  </div>
 
 
 </ion-content>

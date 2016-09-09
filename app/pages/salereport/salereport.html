@@ -6,60 +6,90 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <button menuToggle>
+    <ion-navbar>
+        <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Sale Report</ion-title>
-  </ion-navbar>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <ion-title>Sale Report</ion-title>
+    </ion-navbar>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 </ion-header>
 
 <ion-content padding>
-  <div class="div-resposive" style="width:100%;overflow:auto;padding:10px;">
-  <div class="reponsive-sm">
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          
-          <th class="col textCenter">BRANCH</th>
-          <th class="col textCenter">No of SA</th>
-          <th class="col textCenter">HOB</th>
-          <th class="col textCenter">AHOB</th>
-          <th class="col textCenter">OFFICE ADMIN</th>
-          <th class="col textRight">CARRY FORWARD (A)</th>
-          <th class="col textRight">BOOKING TARGET</th>
-          <th class="col textRight">BOOKING COLLECT (B)</th>
-          <th class="col textRight">TOTAL BOOKING (A+B)</th>
-          <th class="col textRight">CANCEL</th>
-          <th class="col textRight">TARGET FI</th>
-          <th class="col textRight">FINAL FI</th>
-          <th class="col textRight">%</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- <div ng-if=""="name=='John'"> -->
-        <tr *ngFor="let item of listResults">
-          
-          <td class="col textCenter">{{item.branch}}</td>
-          <td class="col textCenter">{{item.noOfSA}}</td>
-          <td class="col textCenter" (click)="getInfoHOB(item.HOB)">{{item.HOB.name}}</td>
-          <td class="col textCenter" (click)="getInfoHOB(item.AHOB)">{{item.AHOB.name}}</td>
-          <td class="col textCenter">{{item.officeAdmin}}</td>
-          <td class="col textRight">{{item.carryForward}}</td>
-          <td class="col textRight">{{item.bookingTarget}}</td>
-          <td class="col textRight">{{item.bookingCollect}}</td>
-          <td class="col textRight">{{item.bookingTotal}}</td>
-          <td class="col textRight">{{item.cancelNo}}</td>
-          <td class="col textRight">{{item.targetFI}}</td>
-          <td class="col textRight">{{item.finalFI}}</td>
-          <td class="col textRight">{{item.percent}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  </div>
+    <ion-list>
+        <ion-item>
+            <ion-label>Search by</ion-label>
+            <ion-select>
+                <ion-option value="region">REGION</ion-option>
+                <ion-option value="branch">BRANCH</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+        <ion-list>
+            <ion-item *ngFor="let item of listResults">
+                {{ item.branch }}
+            </ion-item>
+        </ion-list>
+    </ion-list>
+    <div class="div-reponsive">
+        <div class="reponsive-sm">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="col textCenter">BRANCH</th>
+                        <th class="col textCenter">No of SA</th>
+                        <th class="col textCenter col-name">HOB</th>
+                        <th class="col textCenter col-name">AHOB</th>
+                        <th class="col textCenter col-name">OFFICE ADMIN</th>
+                        <th class="col textRight">CARRY FORWARD (A)</th>
+                        <th class="col textRight">BOOKING TARGET</th>
+                        <th class="col textRight">BOOKING COLLECT (B)</th>
+                        <th class="col textRight">TOTAL BOOKING (A+B)</th>
+                        <th class="col textRight">CANCEL</th>
+                        <th class="col textRight">TARGET FI</th>
+                        <th class="col textRight">FINAL FI</th>
+                        <th class="col textRight">%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of listResults">
+                        <template [ngIf]="isTotal(item.HOB.name)">
+                            <td class="col textCenter row-total">{{item.branch}}</td>
+                            <td class="col textCenter row-total">{{item.noOfSA}}</td>
+                            <td class="col textCenter row-total">{{item.HOB.name}}</td>
+                            <td class="col textCenter row-total">{{item.AHOB.name}}</td>
+                            <td class="col textCenter row-total">{{item.officeAdmin}}</td>
+                            <td class="col textRight row-total">{{item.carryForward}}</td>
+                            <td class="col textRight row-total">{{item.bookingTarget}}</td>
+                            <td class="col textRight row-total">{{item.bookingCollect}}</td>
+                            <td class="col textRight row-total">{{item.bookingTotal}}</td>
+                            <td class="col textRight row-total">{{item.cancelNo}}</td>
+                            <td class="col textRight row-total">{{item.targetFI}}</td>
+                            <td class="col textRight row-total">{{item.finalFI}}</td>
+                            <td class="col textRight row-total">{{item.percent}}</td>
+                        </template>
+                        <template [ngIf]="!isTotal(item.HOB.name)">
+                            <td class="col textCenter">{{item.branch}}</td>
+                            <td class="col textCenter">{{item.noOfSA}}</td>
+                            <td class="col textCenter col-name-hover" (click)="showInfo(item.HOB)">{{item.HOB.name}}</td>
+                            <td class="col textCenter col-name-hover" (click)="showInfo(item.AHOB)">{{item.AHOB.name}}</td>
+                            <td class="col textCenter">{{item.officeAdmin}}</td>
+                            <td class="col textRight">{{item.carryForward}}</td>
+                            <td class="col textRight">{{item.bookingTarget}}</td>
+                            <td class="col textRight">{{item.bookingCollect}}</td>
+                            <td class="col textRight">{{item.bookingTotal}}</td>
+                            <td class="col textRight">{{item.cancelNo}}</td>
+                            <td class="col textRight">{{item.targetFI}}</td>
+                            <td class="col textRight">{{item.finalFI}}</td>
+                            <td class="col textRight">{{item.percent}}</td>
+                        </template>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </ion-content>

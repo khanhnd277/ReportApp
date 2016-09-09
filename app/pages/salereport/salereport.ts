@@ -23,13 +23,13 @@ export class SalereportPage {
         "HOB": {
           "name": "Khanh",
           "mobile": "0974563783",
-          "image": "khanh.jpg", 
+          "image": "khanh.jpg",
           "email": "khanhnd@yahoo.com"
         },
         "AHOB": {
           "name": "Eminem",
           "mobile": "5069506003",
-          "image": "eminem.jpg", 
+          "image": "eminem.jpg",
           "email": "holm@yahoo.com"
         },
         "officeAdmin": "Peter",
@@ -48,13 +48,13 @@ export class SalereportPage {
         "HOB": {
           "name": "Tom Cruise",
           "mobile": "0973372344",
-          "image": "tomcruise.jpg", 
+          "image": "tomcruise.jpg",
           "email": "tom@yahoo.com"
         },
         "AHOB": {
           "name": "Park Ji Sung",
           "mobile": "985985895",
-          "image": "parkjisung.jpg", 
+          "image": "parkjisung.jpg",
           "email": "jspark@yahoo.com"
         },
         "officeAdmin": "Micheal",
@@ -68,7 +68,7 @@ export class SalereportPage {
         "percent": "96%"
       },
       {
-        "branch": "total_VIET NAM",
+        "branch": "VIET NAM",
         "noOfSA": "50",
         "HOB": {
           "name": "REGION",
@@ -87,13 +87,120 @@ export class SalereportPage {
         "targetFI": "88",
         "finalFI": "56",
         "percent": "50%"
+      },
+      {
+        "branch": "KANGGOR",
+        "noOfSA": "34",
+        "HOB": {
+          "name": "Lionel Messi",
+          "mobile": "08736453535",
+          "image": "messi.jpg",
+          "email": "messi@yahoo.com"
+        },
+        "AHOB": {
+          "name": "Jessica Alba",
+          "mobile": "8654789997",
+          "image": "jessica.png",
+          "email": "jessica@yahoo.com"
+        },
+        "officeAdmin": "ChungNT",
+        "carryForward": "34",
+        "bookingTarget": "33",
+        "bookingCollect": "67",
+        "bookingTotal": "12",
+        "cancelNo": "343",
+        "targetFI": "150",
+        "finalFI": "56",
+        "percent": "44%"
+      },
+      {
+        "branch": "LANGKAWI",
+        "noOfSA": "28",
+        "HOB": {
+          "name": "PSY",
+          "mobile": "08645664533",
+          "image": "PSY.jpg",
+          "email": "psy@yahoo.com"
+        },
+        "AHOB": {
+          "name": "Thien TV",
+          "mobile": "08876629863",
+          "image": "thientv.jpg",
+          "email": "thientv@yahoo.com"
+        },
+        "officeAdmin": "Geogre",
+        "carryForward": "3",
+        "bookingTarget": "49",
+        "bookingCollect": "65",
+        "bookingTotal": "74",
+        "cancelNo": "23",
+        "targetFI": "100",
+        "finalFI": "99",
+        "percent": "99%"
+      },
+      {
+        "branch": "PENANG",
+        "noOfSA": "45",
+        "HOB": {
+          "name": "Lord Bendtner",
+          "mobile": "08635432523",
+          "image": "bendtner.jpg",
+          "email": "bendtner@yahoo.com"
+        },
+        "AHOB": {
+          "name": "King Welbeck",
+          "mobile": "0947436434",
+          "image": "welbeck.jpg",
+          "email": "welbeck@yahoo.com"
+        },
+        "officeAdmin": "Hua Thanh Ha",
+        "carryForward": "22",
+        "bookingTarget": "34",
+        "bookingCollect": "54",
+        "bookingTotal": "78",
+        "cancelNo": "20",
+        "targetFI": "98",
+        "finalFI": "50",
+        "percent": "49%"
+      },
+      {
+        "branch": "MALAYSIA",
+        "noOfSA": "130",
+        "HOB": {
+          "name": "REGION",
+          "mobile": ""
+        },
+        "AHOB": {
+          "name": "SUB",
+          "mobile": ""
+        },
+        "officeAdmin": "TOTAL",
+        "carryForward": "124",
+        "bookingTarget": "345",
+        "bookingCollect": "222",
+        "bookingTotal": "164",
+        "cancelNo": "59",
+        "targetFI": "300",
+        "finalFI": "200",
+        "percent": "66%"
       }
     ];
   }
 
-  getInfoHOB(item) {
-    let modal = this.modalCtrl.create(ModalContentPage, {user : item});
+  showInfo(item) {
+    let modal = this.modalCtrl.create(ModalContentPage, { user: item });
     modal.present();
   }
 
+  isTotal(branch: string): boolean {
+    if (branch.indexOf('REGION') >= 0) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
 }
+
+

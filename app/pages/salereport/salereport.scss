@@ -1,20 +1,41 @@
-.salereport {
+.salereport {}
 
+.div-reponsive {
+    width: 100%;
+    overflow: auto;
+    padding: 10px;
+    border: 1px solid #e6e9ee;
+    background-color: #f9fafb;
+    border-radius: 5px;
 }
 
-.table > thead th  {
+.table>thead th {
     border-top: 0;
     background: #666;
     color: #fff;
     vertical-align: top !important;
 }
-.row-total{
-      background-color: rgba(1,95,113,0.45);
+
+.row-total {
+    background-color: rgba(1, 95, 113, 0.45);
     color: #333;
     font-weight: bold;
 }
+
 .textCenter {
     text-align: center;
+}
+
+.col-name {
+    padding: 8px;
+    width: 150px;
+    position: relative;
+    display: block;
+}
+
+.col-name-hover:hover {
+    color: #fff;
+    background: rgba(79, 143, 247, 0.75);
 }
 
 .textRight {
@@ -23,31 +44,30 @@
 
 body {
     font-family: arial;
-  }
+}
 
-  table {
+table {
     border: 1px solid #ccc;
     width: 100%;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     border-collapse: collapse;
     border-spacing: 0;
-  }
+}
 
-  table tr {
+table tr {
     border: 1px solid #ddd;
     padding: 5px;
-  }
+}
 
-  table th, table td {
+table th,
+table td {
     padding: 10px;
     text-align: center;
-  }
+}
 
-  table th {
+table th {
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 1px;
-  }
-
- 
+}
