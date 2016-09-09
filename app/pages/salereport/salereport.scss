@@ -9,11 +9,12 @@
     border-radius: 5px;
 }
 
-.table>thead th {
+.table > thead th {
     border-top: 0;
     background: #666;
     color: #fff;
     vertical-align: top !important;
+    text-decoration: none;
 }
 
 .row-total {

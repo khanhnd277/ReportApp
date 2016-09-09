@@ -1,18 +1,48 @@
 // http://ionicframework.com/docs/v2/theming/
-
-
 // App Shared Imports
 // --------------------------------------------------
 // These are the imports which make up the design of this app.
 // By default each design mode includes these shared imports.
 // App Shared Sass variables belong in app.variables.scss.
-
 @import "../pages/about/about";
-
 @import "../pages/contact/contact";
-
 @import "../pages/home/home";
-
 @import "../pages/salereport/salereport";
+@import "../pages/modal-content/modal-content";
+.left-menu-mobile>scroll-content {
+    overflow: hidden;
+    background: rgba(46, 65, 105, 0.85);
+}
 
-@import "../pages/modal-content/modal-content"
+.list-item-menu button.item {
+    padding-left: 0px;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.list-item-menu button.item:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.list-item-menu button.item i {
+    margin-left: 15px;
+    border-right: 1px solid #cdcdcd;
+    padding-right: 15px;
+    border: 1px solid #fff;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    background: rgba(250, 250, 250, 0.1);
+    padding: 5px;
+    line-height: 25px
+}
+
+.list-item-menu button.item .lbl-title {
+    padding-left: 15px;
+    color: #fff;
+}
+
+.list-item-menu .item .item-inner {
+    border-bottom: 1px solid rgba(250, 250, 250, 0.15);
+}

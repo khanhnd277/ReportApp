@@ -23,10 +23,10 @@ export class MyApp {
   constructor(private platform: Platform, private menu: MenuController) {
     menu.enable(true);
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Contact', component: ContactPage },
-      { title: 'About', component: AboutPage },
-      { title: 'Sale Report', component: SalereportPage }
+      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'Contact', component: ContactPage, icon: 'users' },
+      { title: 'About', component: AboutPage, icon: 'exclamation-circle' },
+      { title: 'Sale Report', component: SalereportPage, icon: 'area-chart' }
     ];
 
     this.rootPage = TabsPage;
