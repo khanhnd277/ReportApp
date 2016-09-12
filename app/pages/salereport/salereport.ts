@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, ModalController } from 'ionic-angular';
-import {ModalContentPage} from '../modal-content/modal-content';
+import { ModalContentPage } from '../modal-content/modal-content';
 
 /*
   Generated class for the SalereportPage page.
@@ -13,9 +13,14 @@ import {ModalContentPage} from '../modal-content/modal-content';
 })
 export class SalereportPage {
 
-  private listResults;
+  private listResults: any;
+  public items: any;
+  
+  
 
   constructor(private navCtrl: NavController, public alertCtrl: AlertController, public modalCtrl: ModalController) {
+    
+    this.items = new Array;
     this.listResults = [
       {
         "branch": "HANOI",
@@ -185,6 +190,16 @@ export class SalereportPage {
         "percent": "66%"
       }
     ];
+
+    this.initializeItems();
+
+  }
+
+  initializeItems() {
+    this.items.length = 0;
+    this.listResults.forEach(element => {
+      this.items.push(element.branch);
+    });
   }
 
   showInfo(item) {
@@ -199,6 +214,21 @@ export class SalereportPage {
       return false;
     }
 
+  }
+
+  getItems(ev) {
+    // Reset items back to all of the items
+    this.initializeItems();
+    document.getElementById('branchList').removeAttribute("hidden");
+    // set val to the value of the ev target
+    var val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
   }
 
 }
