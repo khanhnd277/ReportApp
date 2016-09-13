@@ -11,6 +11,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
         <ion-title>Sale Report</ion-title>
+        <ion-buttons end class="button-right">
+            <button royal class="btn-refresh">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+        </ion-buttons>
     </ion-navbar>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </ion-header>
@@ -21,12 +26,12 @@
             <ion-label>Search by</ion-label>
             <ion-select>
                 <ion-option value="region">REGION</ion-option>
-                <ion-option value="branch">BRANCH</ion-option>
+                <ion-option value="branch" selected="true">BRANCH</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>
             <ion-label>Search</ion-label>
-            <ion-select>
+            <ion-select disabled="true">
                 <ion-option *ngFor="let item of items">{{item}}</ion-option>
             </ion-select>
         </ion-item>
