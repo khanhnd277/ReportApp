@@ -15,7 +15,7 @@ export class SalereportPage {
 
   private listResults: any;
   public items: any;
-  
+  private searchCondition: string;
   
 
   constructor(private navCtrl: NavController, public alertCtrl: AlertController, public modalCtrl: ModalController) {
@@ -192,7 +192,7 @@ export class SalereportPage {
     ];
 
     this.initializeItems();
-
+    this.searchCondition = '';
   }
 
   initializeItems() {

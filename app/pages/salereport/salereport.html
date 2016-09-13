@@ -23,16 +23,19 @@
 <ion-content padding>
     <ion-list>
         <ion-item>
-            <ion-label>Search by</ion-label>
-            <ion-select>
-                <ion-option value="region">REGION</ion-option>
-                <ion-option value="branch" selected="true">BRANCH</ion-option>
+            <ion-label>Search</ion-label>
+            <ion-select [(ngModel)]="searchCondition">
+                <ion-option value="">ALL</ion-option>
+                <ion-option value="REGION" selected="true">REGION</ion-option>
+                <ion-option value="BRANCH">BRANCH</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>
-            <ion-label>Search</ion-label>
-            <ion-select disabled="true">
-                <ion-option *ngFor="let item of items">{{item}}</ion-option>
+            <ion-label>{{searchCondition}}</ion-label>
+            <ion-select [disabled]="(searchCondition == undefined || searchCondition == '')? true : false">
+                <template [ngIf]="!(searchCondition == undefined || searchCondition == '')">
+                    <ion-option *ngFor="let item of items ">{{item}}</ion-option>
+                </template>
             </ion-select>
         </ion-item>
     </ion-list>
