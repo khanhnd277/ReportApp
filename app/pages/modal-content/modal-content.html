@@ -11,13 +11,31 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <div class="list card margin-top-20">
-        <div class="row padding-20">
+<ion-content class="bg-subcontent">
+    <div class="list card">
+        <div class="padding-15">
+            <ion-card class="box-card">
+                <ion-card-header>
+                    <div class="box-img-circle">
+                        <img class="img-circle img-responsive" src="./img/{{user.image}}">
+                    </div>
+                </ion-card-header>
+                <ion-card-content>
+                    <div class="box-disc text-center">
+                        <label class="lbl-name"> {{user.name}}</label>
+                        <p class="lbl-email"> {{user.email}}</p>
+                        <p class="lbl-phone">{{user.mobile}}</p>
+                        <p class="disc-sort"> <small> </small></p>
+                    </div>
+
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="row padding-20 hidden">
             <div class="col-sm-4">
                 <div class="item item-avatar">
                     <div class="box-img">
-                        <img class="img-responsive" src="./img/{{user.image}}">
+                        <img class="img-circle img-responsive" src="./img/{{user.image}}">
                     </div>
                 </div>
             </div>
