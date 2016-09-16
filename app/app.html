@@ -9,10 +9,6 @@
 
     <ion-content class="left-menu-mobile">
         <ion-list class="list-item-menu">
-            <!-- remember the `this.pages` object we created in `app.js`?
-      // Iterate through, then when clicked, run the associated function
-      // passing in the #p item.
-      // changed #p to let p instead -->
             <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
        <span class="box-icon-menu"><i class="fa fa-{{p.icon}}"></i></span>
        <span class="lbl-title"> {{p.title}}</span>
@@ -21,4 +17,4 @@
     </ion-content>
 
 </ion-menu>
-<ion-nav #myNav [root]="rootPage" swipe-back-enabled="false"></ion-nav>
+<ion-nav #myNav [root]="rootPage" swipe-back-enabled="0"></ion-nav>

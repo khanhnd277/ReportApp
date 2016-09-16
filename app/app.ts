@@ -20,6 +20,7 @@ export class MyApp {
   private rootPage: any;
   private pages: any[];
 
+
   constructor(private platform: Platform, private menu: MenuController) {
     menu.enable(true);
     this.pages = [
@@ -43,7 +44,8 @@ export class MyApp {
     // Using this.nav.setRoot() causes
     // Tabs to not show!
     //this.nav.push(page.component);
-    helpers.debounce(this.nav.setRoot(page.component), 60, false);
+    //helpers.debounce(this.nav.setRoot(page.component), 60, false);
+    this.rootPage = page.component;
   };
 }
 

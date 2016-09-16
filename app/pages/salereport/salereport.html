@@ -8,8 +8,8 @@
 
     <ion-navbar>
         <button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+         <ion-icon name="menu"></ion-icon>
+            </button>
         <ion-title>Sale Report</ion-title>
         <ion-buttons end class="button-right">
             <button royal class="btn-refresh">
@@ -26,7 +26,7 @@
             <ion-label>Search</ion-label>
             <ion-select [(ngModel)]="searchCondition">
                 <ion-option value="">ALL</ion-option>
-                <ion-option value="REGION" selected="true">REGION</ion-option>
+                <ion-option value="REGION">REGION</ion-option>
                 <ion-option value="BRANCH">BRANCH</ion-option>
             </ion-select>
         </ion-item>
@@ -34,7 +34,12 @@
             <ion-label>{{searchCondition}}</ion-label>
             <ion-select [disabled]="(searchCondition == undefined || searchCondition == '')? true : false">
                 <template [ngIf]="!(searchCondition == undefined || searchCondition == '')">
-                    <ion-option *ngFor="let item of items ">{{item}}</ion-option>
+                    <template [ngIf]="searchCondition == 'BRANCH'">
+                        <ion-option *ngFor="let item of listBranch">{{item}}</ion-option>
+                    </template>
+                <template [ngIf]="searchCondition == 'REGION'">
+                        <ion-option *ngFor="let item of listRegion">{{item}}</ion-option>
+                    </template>
                 </template>
             </ion-select>
         </ion-item>

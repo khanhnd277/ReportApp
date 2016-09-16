@@ -14,13 +14,16 @@ import { ModalContentPage } from '../modal-content/modal-content';
 export class SalereportPage {
 
   private listResults: any;
-  public items: any;
+  public listBranch: any;
+  public listRegion: any;
   private searchCondition: string;
-  
+
 
   constructor(private navCtrl: NavController, public alertCtrl: AlertController, public modalCtrl: ModalController) {
-    
-    this.items = new Array;
+
+    this.listBranch = new Array;
+    this.listRegion = new Array;
+
     this.listResults = [
       {
         "branch": "HANOI",
@@ -191,14 +194,19 @@ export class SalereportPage {
       }
     ];
 
-    this.initializeItems();
+    this.initializelistOutputBranch();
     this.searchCondition = '';
   }
 
-  initializeItems() {
-    this.items.length = 0;
+  initializelistOutputBranch() {
+    this.listBranch.length = 0;
+    this.listRegion.length = 0;
     this.listResults.forEach(element => {
-      this.items.push(element.branch);
+      if (element.HOB.name == 'REGION') {
+        this.listRegion.push(element.branch);
+      } else {
+        this.listBranch.push(element.branch);
+      }
     });
   }
 
@@ -216,20 +224,20 @@ export class SalereportPage {
 
   }
 
-  getItems(ev) {
-    // Reset items back to all of the items
-    this.initializeItems();
-    document.getElementById('branchList').removeAttribute("hidden");
-    // set val to the value of the ev target
-    var val = ev.target.value;
+  // getlistOutputBranch(ev) {
+  //   // Reset listOutputBranch back to all of the listOutputBranch
+  //   this.initializelistOutputBranch();
+  //   document.getElementById('branchList').removeAttribute("hidden");
+  //   // set val to the value of the ev target
+  //   var val = ev.target.value;
 
-    // if the value is an empty string don't filter the items
-    if (val && val.trim() != '') {
-      this.items = this.items.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
-    }
-  }
+  //   // if the value is an empty string don't filter the listOutputBranch
+  //   if (val && val.trim() != '') {
+  //     this.listOutputBranch = this.listOutputBranch.filter((item) => {
+  //       return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+  //     })
+  //   }
+  // }
 
 }
 
