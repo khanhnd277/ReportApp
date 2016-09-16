@@ -7,6 +7,7 @@ import {ContactPage} from './pages/contact/contact';
 import {AboutPage} from './pages/about/about';
 import {SalereportPage} from './pages/salereport/salereport';
 import {TabsPage} from './pages/tabs/tabs';
+import {LoginPage} from './pages/login/login'
 
 import * as helpers from './directives/helper';
 

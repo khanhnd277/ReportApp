@@ -1,69 +1,11 @@
-// http://ionicframework.com/docs/v2/theming/
-// App Shared Imports
-// --------------------------------------------------
-// These are the imports which make up the design of this app.
-// By default each design mode includes these shared imports.
-// App Shared Sass variables belong in app.variables.scss.
-@import "../pages/about/about";
-@import "../pages/contact/contact";
-@import "../pages/home/home";
-@import "../pages/salereport/salereport";
-@import "../pages/modal-content/modal-content";
-.left-menu-mobile>scroll-content {
-    overflow: hidden;
-    background: rgba(19, 20, 24, 0.85);
-}
-
-.list-item-menu button.item:first-child,
-.list-item-menu .item-wrapper:first-child .item {
-    border-top: 2px solid rgba(250, 250, 250, 0.25);
-}
-
-.list-item-menu button.item:last-child,
-.list-item-menu .item-wrapper:last-child .item {
-    border-bottom: 2px solid rgba(250, 250, 250, 0);
-}
-
-.list-item-menu button.item {
-    padding-left: 0px;
-    background: rgba(0, 0, 0, 0.15);
-}
-
-.list-item-menu button.item:hover {
-    background: rgba(0, 0, 0, 0.35);
-}
-
-.list-item-menu button.item i {
-    margin-left: 15px;
-    height: 35px;
-    width: 35px;
-    font-size: 22px;
-    color: rgba(250, 250, 250, 1);
-    text-align: center;
-    padding: 5px;
-    line-height: 25px;
-}
-
-.list-item-menu button.item:hover i {
-    color: rgba(250, 250, 250, 0.5);
-    //background: rgba(250, 250, 250, 0.15);
-}
-
-.list-item-menu button.item .lbl-title {
-    padding-left: 5px;
-    color: #fff;
-}
-
-.list-item-menu .item .item-inner {
-    border-bottom: 1px dotted rgba(250, 250, 250, 0.25);
-}
-
-.rp-toolbar .toolbar-background {
-    //background: #131418;
-    background: #2C2C2E;
-}
-
-.rp-toolbar .toolbar-content {
-    text-align: center;
-    text-transform: uppercase;
-}
+    // http://ionicframework.com/docs/v2/theming/
+    // App Shared Imports
+    // --------------------------------------------------
+    // These are the imports which make up the design of this app.
+    // By default each design mode includes these shared imports.
+    // App Shared Sass variables belong in app.variables.scss.
+    @import "../pages/about/about";
+    @import "../pages/contact/contact";
+    @import "../pages/home/home";
+    @import "../pages/salereport/salereport";
+    @import "../pages/modal-content/modal-content";
