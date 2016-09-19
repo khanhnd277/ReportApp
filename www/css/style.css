@@ -135,7 +135,7 @@
     background: #fff;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('./././img/bg.jpg');
+    background-image: url('../img/bg.jpg');
     /*background-image: url('http://www.bwdmagazine.com/wp-content/uploads/2013/04/background-pattern1.jpg');
     background-image: url('http://demos.telerik.com/kendo-ui/content/shared/styles/world-map.png');*/
 }

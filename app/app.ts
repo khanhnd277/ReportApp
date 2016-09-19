@@ -25,6 +25,7 @@ export class MyApp {
   constructor(private platform: Platform, private menu: MenuController) {
     menu.enable(true);
     this.pages = [
+      { title: 'Login', component: LoginPage, icon: 'key' },
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'Contact', component: ContactPage, icon: 'users' },
       { title: 'About', component: AboutPage, icon: 'exclamation-circle' },
