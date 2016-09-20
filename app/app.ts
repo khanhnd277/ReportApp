@@ -25,14 +25,14 @@ export class MyApp {
   constructor(private platform: Platform, private menu: MenuController) {
     menu.enable(true);
     this.pages = [
-      { title: 'Login', component: LoginPage, icon: 'key' },
+      // { title: 'Login', component: LoginPage, icon: 'key' },
       { title: 'Home', component: HomePage, icon: 'home' },
-      { title: 'Contact', component: ContactPage, icon: 'users' },
-      { title: 'About', component: AboutPage, icon: 'exclamation-circle' },
+      // { title: 'Contact', component: ContactPage, icon: 'users' },
+      // { title: 'About', component: AboutPage, icon: 'exclamation-circle' },
       { title: 'Sale Report', component: SalereportPage, icon: 'area-chart' }
     ];
 
-    this.rootPage = TabsPage;
+    this.rootPage = LoginPage;
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

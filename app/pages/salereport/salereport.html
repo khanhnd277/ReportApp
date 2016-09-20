@@ -11,90 +11,93 @@
          <ion-icon name="menu"></ion-icon>
             </button>
         <ion-title>Sale Report</ion-title>
-        <ion-buttons end class="button-right">
+        <!--<ion-buttons end class="button-right">
             <button royal class="btn-refresh">
         <ion-icon name="refresh"></ion-icon>
       </button>
-        </ion-buttons>
+        </ion-buttons>-->
     </ion-navbar>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </ion-header>
 
 <ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <ion-list>
         <ion-item>
             <ion-label>Search</ion-label>
-            <ion-select [(ngModel)]="searchCondition">
-                <ion-option value="">ALL</ion-option>
-                <ion-option value="REGION">REGION</ion-option>
-                <ion-option value="BRANCH">BRANCH</ion-option>
+            <ion-select [(ngModel)]="searchCondition" (ionChange)="searchAll()">
+                <ion-option value=''>ALL</ion-option>
+                <ion-option value='REGION'>REGION</ion-option>
+                <ion-option value='BRANCH'>BRANCH</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>
             <ion-label>{{searchCondition}}</ion-label>
-            <ion-select [disabled]="(searchCondition == undefined || searchCondition == '')? true : false">
-                <template [ngIf]="!(searchCondition == undefined || searchCondition == '')">
-                    <template [ngIf]="searchCondition == 'BRANCH'">
-                        <ion-option *ngFor="let item of listBranch">{{item}}</ion-option>
+            <ion-select [(ngModel)]="searchValue" [disabled]="(searchCondition == undefined || searchCondition == '' )? true : false " (ionChange)="searchBranch() ">
+                <template [ngIf]="!(searchCondition == undefined || searchCondition == '' ) ">
+                    <template [ngIf]="searchCondition == 'BRANCH' ">
+                        <ion-option *ngFor="let item of listBranch ">{{item}}</ion-option>
                     </template>
-                <template [ngIf]="searchCondition == 'REGION'">
-                        <ion-option *ngFor="let item of listRegion">{{item}}</ion-option>
+                <template [ngIf]="searchCondition=='REGION' ">
+                        <ion-option *ngFor="let item of listRegion ">{{item}}</ion-option>
                     </template>
                 </template>
             </ion-select>
         </ion-item>
     </ion-list>
-    <div class="div-reponsive">
-        <div class="reponsive-sm">
-            <table class="table-sales table table-bordered table-hover">
+    <div class="div-reponsive ">
+        <div class="reponsive-sm ">
+            <table class="table-sales table table-bordered table-hover ">
                 <thead>
                     <tr>
-                        <th class="col textCenter lg">Branch</th>
-                        <th class="col textCenter">No of SA</th>
-                        <th class="col textCenter col-name lg">HOB</th>
-                        <th class="col textCenter col-name lg">AHOB</th>
-                        <th class="col textCenter col-name lg">Office Admin</th>
-                        <th class="col textCenter">Carry Forward (A)</th>
-                        <th class="col textCenter">Booking Target</th>
-                        <th class="col textCenter">Booking Collect (B)</th>
-                        <th class="col textCenter">TOTAL Booking (A+B)</th>
-                        <th class="col textCenter">Cancel</th>
-                        <th class="col textCenter">Target FI</th>
-                        <th class="col textCenter">Final FI</th>
-                        <th class="col textCenter">%</th>
+                        <th class="col textCenter lg ">Branch</th>
+                        <th class="col textCenter ">No of SA</th>
+                        <th class="col textCenter col-name lg ">HOB</th>
+                        <th class="col textCenter col-name lg ">AHOB</th>
+                        <th class="col textCenter col-name lg ">Office Admin</th>
+                        <th class="col textCenter ">Carry Forward (A)</th>
+                        <th class="col textCenter ">Booking Target</th>
+                        <th class="col textCenter ">Booking Collect (B)</th>
+                        <th class="col textCenter ">TOTAL Booking (A+B)</th>
+                        <th class="col textCenter ">Cancel</th>
+                        <th class="col textCenter ">Target FI</th>
+                        <th class="col textCenter ">Final FI</th>
+                        <th class="col textCenter ">%</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of listResults">
-                        <template [ngIf]="isTotal(item.HOB.name)">
-                            <td class="col textCenter row-total">{{item.branch}}</td>
-                            <td class="col textCenter row-total">{{item.noOfSA}}</td>
-                            <td class="col textCenter row-total">{{item.HOB.name}}</td>
-                            <td class="col textCenter row-total">{{item.AHOB.name}}</td>
-                            <td class="col textCenter row-total">{{item.officeAdmin}}</td>
-                            <td class="col textRight row-total">{{item.carryForward}}</td>
-                            <td class="col textRight row-total">{{item.bookingTarget}}</td>
-                            <td class="col textRight row-total">{{item.bookingCollect}}</td>
-                            <td class="col textRight row-total">{{item.bookingTotal}}</td>
-                            <td class="col textRight row-total">{{item.cancelNo}}</td>
-                            <td class="col textRight row-total">{{item.targetFI}}</td>
-                            <td class="col textRight row-total">{{item.finalFI}}</td>
-                            <td class="col textRight row-total">{{item.percent}}</td>
+                    <tr *ngFor="let item of listResults ">
+                        <template [ngIf]="isTotal(item.HOB.name) ">
+                            <td class="col textCenter row-total ">{{item.branch}}</td>
+                            <td class="col textCenter row-total ">{{item.noOfSA}}</td>
+                            <td class="col textCenter row-total ">{{item.HOB.name}}</td>
+                            <td class="col textCenter row-total ">{{item.AHOB.name}}</td>
+                            <td class="col textCenter row-total ">{{item.officeAdmin}}</td>
+                            <td class="col textRight row-total ">{{item.carryForward}}</td>
+                            <td class="col textRight row-total ">{{item.bookingTarget}}</td>
+                            <td class="col textRight row-total ">{{item.bookingCollect}}</td>
+                            <td class="col textRight row-total ">{{item.bookingTotal}}</td>
+                            <td class="col textRight row-total ">{{item.cancelNo}}</td>
+                            <td class="col textRight row-total ">{{item.targetFI}}</td>
+                            <td class="col textRight row-total ">{{item.finalFI}}</td>
+                            <td class="col textRight row-total ">{{item.percent}}</td>
                         </template>
-                        <template [ngIf]="!isTotal(item.HOB.name)">
-                            <td class="col textCenter">{{item.branch}}</td>
-                            <td class="col textCenter">{{item.noOfSA}}</td>
-                            <td class="col textCenter col-name-hover" (click)="showInfo(item.HOB)">{{item.HOB.name}}</td>
-                            <td class="col textCenter col-name-hover" (click)="showInfo(item.AHOB)">{{item.AHOB.name}}</td>
-                            <td class="col textCenter">{{item.officeAdmin}}</td>
-                            <td class="col textRight">{{item.carryForward}}</td>
-                            <td class="col textRight">{{item.bookingTarget}}</td>
-                            <td class="col textRight">{{item.bookingCollect}}</td>
-                            <td class="col textRight">{{item.bookingTotal}}</td>
-                            <td class="col textRight">{{item.cancelNo}}</td>
-                            <td class="col textRight">{{item.targetFI}}</td>
-                            <td class="col textRight">{{item.finalFI}}</td>
-                            <td class="col textRight">{{item.percent}}</td>
+                        <template [ngIf]="!isTotal(item.HOB.name) ">
+                            <td class="col textCenter ">{{item.branch}}</td>
+                            <td class="col textCenter ">{{item.noOfSA}}</td>
+                            <td class="col textCenter col-name-hover " (click)="showInfo(item.HOB) ">{{item.HOB.name}}</td>
+                            <td class="col textCenter col-name-hover " (click)="showInfo(item.AHOB) ">{{item.AHOB.name}}</td>
+                            <td class="col textCenter ">{{item.officeAdmin}}</td>
+                            <td class="col textRight ">{{item.carryForward}}</td>
+                            <td class="col textRight ">{{item.bookingTarget}}</td>
+                            <td class="col textRight ">{{item.bookingCollect}}</td>
+                            <td class="col textRight ">{{item.bookingTotal}}</td>
+                            <td class="col textRight ">{{item.cancelNo}}</td>
+                            <td class="col textRight ">{{item.targetFI}}</td>
+                            <td class="col textRight ">{{item.finalFI}}</td>
+                            <td class="col textRight ">{{item.percent}}</td>
                         </template>
 
                     </tr>

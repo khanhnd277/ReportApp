@@ -13,20 +13,25 @@ import { ModalContentPage } from '../modal-content/modal-content';
 })
 export class SalereportPage {
 
+  private listAllResults: any;
   private listResults: any;
   public listBranch: any;
   public listRegion: any;
   private searchCondition: string;
+  private searchValue: string;
+  private searchResult: any;
 
 
   constructor(private navCtrl: NavController, public alertCtrl: AlertController, public modalCtrl: ModalController) {
 
     this.listBranch = new Array;
     this.listRegion = new Array;
+    this.searchResult = new Array;
 
-    this.listResults = [
+    this.listAllResults = [
       {
         "branch": "HANOI",
+        "region": "VIET NAM",
         "noOfSA": "12",
         "HOB": {
           "name": "Khanh",
@@ -52,6 +57,7 @@ export class SalereportPage {
       },
       {
         "branch": "HO CHI MINH",
+        "region": "VIET NAM",
         "noOfSA": "30",
         "HOB": {
           "name": "Tom Cruise",
@@ -77,6 +83,7 @@ export class SalereportPage {
       },
       {
         "branch": "VIET NAM",
+        "region": "VIET NAM",
         "noOfSA": "50",
         "HOB": {
           "name": "REGION",
@@ -98,6 +105,7 @@ export class SalereportPage {
       },
       {
         "branch": "KANGGOR",
+        "region": "MALAYSIA",
         "noOfSA": "34",
         "HOB": {
           "name": "Lionel Messi",
@@ -123,6 +131,7 @@ export class SalereportPage {
       },
       {
         "branch": "LANGKAWI",
+        "region": "MALAYSIA",
         "noOfSA": "28",
         "HOB": {
           "name": "PSY",
@@ -148,6 +157,7 @@ export class SalereportPage {
       },
       {
         "branch": "PENANG",
+        "region": "MALAYSIA",
         "noOfSA": "45",
         "HOB": {
           "name": "Lord Bendtner",
@@ -173,6 +183,7 @@ export class SalereportPage {
       },
       {
         "branch": "MALAYSIA",
+        "region": "",
         "noOfSA": "130",
         "HOB": {
           "name": "REGION",
@@ -196,12 +207,13 @@ export class SalereportPage {
 
     this.initializelistOutputBranch();
     this.searchCondition = '';
+    this.listResults = this.listAllResults;
   }
 
   initializelistOutputBranch() {
     this.listBranch.length = 0;
     this.listRegion.length = 0;
-    this.listResults.forEach(element => {
+    this.listAllResults.forEach(element => {
       if (element.HOB.name == 'REGION') {
         this.listRegion.push(element.branch);
       } else {
@@ -224,20 +236,53 @@ export class SalereportPage {
 
   }
 
-  // getlistOutputBranch(ev) {
-  //   // Reset listOutputBranch back to all of the listOutputBranch
-  //   this.initializelistOutputBranch();
-  //   document.getElementById('branchList').removeAttribute("hidden");
-  //   // set val to the value of the ev target
-  //   var val = ev.target.value;
+  searchBranch() {
+    if (this.searchValue != '') {
+      if (this.searchCondition == 'BRANCH') {
+        this.listResults = this.getReportByBranch(this.searchValue);
+      } else if (this.searchCondition == 'REGION') {
+        this.listResults = this.getReportByRegion(this.searchValue);
+      }
+    }
+  }
 
-  //   // if the value is an empty string don't filter the listOutputBranch
-  //   if (val && val.trim() != '') {
-  //     this.listOutputBranch = this.listOutputBranch.filter((item) => {
-  //       return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-  //     })
-  //   }
-  // }
+  searchAll() {
+    if (this.searchCondition == '') {
+      this.listResults = this.listAllResults;
+    }
+  }
+
+  getReportByBranch(searchValue) {
+    // return this.http.get(repo.url + '/readme', { headers: headers });
+    this.searchResult.length = 0;
+    this.listAllResults.forEach(element => {
+      if (element.branch == searchValue) {
+        this.searchResult.push(element);
+      }
+    });
+    return this.searchResult;
+  }
+
+  getReportByRegion(searchValue) {
+    // return this.http.get(repo.url + '/readme', { headers: headers });
+    this.searchResult.length = 0;
+    this.listAllResults.forEach(element => {
+      if (element.region == searchValue || element.branch == searchValue) {
+        this.searchResult.push(element);
+      }
+    });
+    return this.searchResult;
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+    //window.location.reload();
+  }
 
 }
 

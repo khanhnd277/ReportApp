@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {HomePage} from '../home/home';
+
+import * as helpers from '../../directives/helper';
 
 /*
   Generated class for the LoginPage page.
@@ -14,6 +17,10 @@ export class LoginPage {
 
   constructor(private navCtrl: NavController) {
 
+  }
+
+  login(){
+    helpers.debounce(this.navCtrl.setRoot(HomePage), 60, false);
   }
 
 }
