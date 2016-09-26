@@ -5,6 +5,10 @@
     /*background: linear-gradient(to bottom, rgba(19, 20, 24, 0.85), #2C3E50);*/
 }
 
+.list-item-menu {
+    margin: 0 auto;
+}
+
 .row-total {
     color: #444 !important;
     background: rgba(19, 20, 24, 0.15) !important;
@@ -45,6 +49,19 @@
 .list-item-menu button.item:hover i {
     color: rgba(250, 250, 250, 0.5);
     /*background: rgba(250, 250, 250, 0.15);*/
+}
+
+.table-sales thead tr th.col-sum {
+    min-width: 235px;
+}
+
+.table-sales>tbody>tr>td span {
+    line-height: 60px;
+    position: relative;
+}
+
+.table-sales>tbody>tr>td .progress {
+    margin-top: 20px;
 }
 
 .list-item-menu button.item .lbl-title {
@@ -91,6 +108,62 @@
 
 .box-img-circle img {
     border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.box-info-sum .media-list {
+    margin-bottom: 0px;
+}
+
+.head-info {
+    margin-top: 5px;
+}
+
+.head-info h1.name-HOB {
+    font-weight: 600;
+    margin: 5px 0px;
+    text-shadow: none;
+    font-size: 14px;
+}
+
+.head-info h1.name-HOB a {
+    color: #444444;
+}
+
+.head-info h4.name-AHOB {
+    margin: 5px 0;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.head-info h4.name-AHOB a {
+    color: #878787;
+}
+
+.head-info h3.name-officeAdmin {
+    margin: 5px 0;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.head-info h3.name-officeAdmin a {
+    color: #555;
+}
+
+.box-img-smallcircle {
+    height: 55px;
+    width: 55px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    padding: 2px;
+    border-radius: 50%;
+    border: 1px solid #cdcdcd;
+}
+
+.box-img-smallcircle img {
+    border-radius: 50%;
     width: 100%;
     height: 100%;
 }
