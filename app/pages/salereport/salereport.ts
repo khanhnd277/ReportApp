@@ -31,7 +31,7 @@ export class SalereportPage {
     this.listAllResults = [
       {
         "branch": "VIET NAM",
-        "region": "VIET NAM",
+        "region": "",
         "noOfSA": "50",
         "HOB": {
           "name": "REGION",
@@ -67,7 +67,12 @@ export class SalereportPage {
           "image": "eminem.jpg",
           "email": "holm@yahoo.com"
         },
-        "officeAdmin": "Peter",
+        "officeAdmin": {
+          "name": "Peter",
+          "mobile": "985985895",
+          "image": "peter.jpg",
+          "email": "peter@yahoo.com"
+        },
         "carryForward": "6",
         "bookingTarget": "34",
         "bookingCollect": "15",
@@ -93,7 +98,12 @@ export class SalereportPage {
           "image": "parkjisung.jpg",
           "email": "jspark@yahoo.com"
         },
-        "officeAdmin": "Micheal",
+        "officeAdmin": {
+          "name": "Michael",
+          "mobile": "985985895",
+          "image": "michael.jpg",
+          "email": "michael@yahoo.com"
+        }, 
         "carryForward": "12",
         "bookingTarget": "22",
         "bookingCollect": "25",
@@ -141,7 +151,12 @@ export class SalereportPage {
           "image": "jessica.png",
           "email": "jessica@yahoo.com"
         },
-        "officeAdmin": "ChungNT",
+        "officeAdmin": {
+          "name": "ChungNT",
+          "mobile": "985985895",
+          "image": "chungnt.jpg",
+          "email": "chungnt@yahoo.com"
+        },
         "carryForward": "34",
         "bookingTarget": "33",
         "bookingCollect": "67",
@@ -167,7 +182,12 @@ export class SalereportPage {
           "image": "thientv.jpg",
           "email": "thientv@yahoo.com"
         },
-        "officeAdmin": "Geogre",
+        "officeAdmin": {
+          "name": "George",
+          "mobile": "985985895",
+          "image": "george.jpg",
+          "email": "george@yahoo.com"
+        },
         "carryForward": "3",
         "bookingTarget": "49",
         "bookingCollect": "65",
@@ -193,7 +213,12 @@ export class SalereportPage {
           "image": "welbeck.jpg",
           "email": "welbeck@yahoo.com"
         },
-        "officeAdmin": "Hua Thanh Ha",
+        "officeAdmin": {
+          "name": "Hua Thanh Ha",
+          "mobile": "985985895",
+          "image": "haht.jpg",
+          "email": "haht@yahoo.com"
+        },
         "carryForward": "22",
         "bookingTarget": "34",
         "bookingCollect": "54",
