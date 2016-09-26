@@ -9,6 +9,11 @@ import {SalereportPage} from './pages/salereport/salereport';
 import {TabsPage} from './pages/tabs/tabs';
 import {LoginPage} from './pages/login/login'
 
+import {BarchartPage} from './pages/barchart/barchart'
+import {LinechartPage} from './pages/linechart/linechart'
+import {PiechartPage} from './pages/piechart/piechart'
+
+
 import * as helpers from './directives/helper';
 
 
@@ -29,10 +34,15 @@ export class MyApp {
       { title: 'Home', component: HomePage, icon: 'home' },
       // { title: 'Contact', component: ContactPage, icon: 'users' },
       // { title: 'About', component: AboutPage, icon: 'exclamation-circle' },
-      { title: 'Sale Report', component: SalereportPage, icon: 'area-chart' }
+      { title: 'Sale Report', component: SalereportPage, icon: 'area-chart' },
+
+      { title: 'Bar Chart', component: BarchartPage, icon: 'bar-chart' },
+      { title: 'Line Chart', component: LinechartPage, icon: 'line-chart' },
+      { title: 'Pie Chart', component: PiechartPage, icon: 'pie-chart' }
     ];
 
     this.rootPage = LoginPage;
+    // this.rootPage = LinechartPage;
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

@@ -124,7 +124,7 @@ export class SalereportPage {
         "bookingTarget": "33",
         "bookingCollect": "67",
         "bookingTotal": "12",
-        "cancelNo": "343",
+        "cancelNo": "34",
         "targetFI": "150",
         "finalFI": "56",
         "percent": "44%"
