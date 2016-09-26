@@ -53,10 +53,9 @@
                 <thead>
                     <tr>
                         <th class="col textCenter lg ">Branch</th>
-                        <th class="col textCenter ">No of SA</th>
-                        <th class="col textCenter col-name lg ">HOB</th>
-                        <th class="col textCenter col-name lg ">AHOB</th>
-                        <th class="col textCenter col-name lg ">Office Admin</th>
+                        <th class="col textCenter">No of SA</th>
+                        <th class="col textCenter col-sum">HOB/AHOB/Office Admin</th>
+
                         <th class="col textCenter ">Carry Forward (A)</th>
                         <th class="col textCenter ">Booking Target</th>
                         <th class="col textCenter ">Booking Collect (B)</th>
@@ -70,39 +69,73 @@
                 <tbody>
                     <tr *ngFor="let item of listResults ">
                         <template [ngIf]="isTotal(item.HOB.name) ">
-                            <td class="col textCenter row-total ">{{item.branch}}</td>
-                            <td class="col textCenter row-total ">{{item.noOfSA}}</td>
-                            <td class="col textCenter row-total ">{{item.HOB.name}}</td>
-                            <td class="col textCenter row-total ">{{item.AHOB.name}}</td>
-                            <td class="col textCenter row-total ">{{item.officeAdmin}}</td>
-                            <td class="col textRight row-total ">{{item.carryForward}}</td>
-                            <td class="col textRight row-total ">{{item.bookingTarget}}</td>
-                            <td class="col textRight row-total ">{{item.bookingCollect}}</td>
-                            <td class="col textRight row-total ">{{item.bookingTotal}}</td>
-                            <td class="col textRight row-total ">{{item.cancelNo}}</td>
-                            <td class="col textRight row-total ">{{item.targetFI}}</td>
-                            <td class="col textRight row-total ">{{item.finalFI}}</td>
-                            <td class="col textRight row-total ">{{item.percent}}</td>
-                        </template>
-                        <template [ngIf]="!isTotal(item.HOB.name) ">
-                            <td class="col textCenter ">{{item.branch}}</td>
-                            <td class="col textCenter ">{{item.noOfSA}}</td>
-                            <td class="col textCenter col-name-hover " (click)="showInfo(item.HOB) ">{{item.HOB.name}}</td>
-                            <td class="col textCenter col-name-hover " (click)="showInfo(item.AHOB) ">{{item.AHOB.name}}</td>
-                            <td class="col textCenter ">{{item.officeAdmin}}</td>
-                            <td class="col textRight ">{{item.carryForward}}</td>
-                            <td class="col textRight ">{{item.bookingTarget}}</td>
-                            <td class="col textRight ">{{item.bookingCollect}}</td>
-                            <td class="col textRight ">{{item.bookingTotal}}</td>
-                            <td class="col textRight ">{{item.cancelNo}}</td>
-                            <td class="col textRight ">{{item.targetFI}}</td>
-                            <td class="col textRight ">{{item.finalFI}}</td>
-                            <td class="col textRight ">
+                            <td class="col textCenter row-total "><span>{{item.branch}}</span></td>                             
+                            <td class="col textCenter row-total "><span>{{item.noOfSA}}</span></td>
+                            <td class="col textCenter row-total"></td>                           
+                            <td class="col textRight row-total "><span>{{item.carryForward}}</span></td>
+                            <td class="col textRight row-total "><span>{{item.bookingTarget}}</span></td>
+                            <td class="col textRight row-total "><span>{{item.bookingCollect}}</span></td>
+                            <td class="col textRight row-total "><span>{{item.bookingTotal}}</span></td>
+                            <td class="col textRight row-total "><span>{{item.cancelNo}}</span></td>
+                            <td class="col textRight row-total "><span>{{item.targetFI}}</span></td>
+                            <td class="col textRight row-total "><span>{{item.finalFI}}</span></td>
+                            <td class="col textRight row-total ">
                                 <div class="progress">
-                                 <div class="progress-bar progress-bar-success"  role="progressbar" [ngStyle]="{width:item.percent}" attr.aria-valuenow="{{item.percent| slice:0:item.percent.length -1}}" aria-valuemin="0" aria-valuemax="100">
+                                 <div class="progress-bar progress-bar-success"  role="progressbar" [ngStyle]="{width:item.percent}"  attr.aria-valuenow="{{item.percent| slice:0:item.percent.length -1}}" aria-valuemin="0" aria-valuemax="100">
                                  {{item.percent}}</div>
                                 </div>
                             </td>
+                        </template>
+                        <template [ngIf]="!isTotal(item.HOB.name) ">
+                            <td class="col textCenter "><span>{{item.branch}}</span></td>
+                            <td class="col textCenter "><span>{{item.noOfSA}}</span></td>
+                             <td class="col textCenter box-info-sum">
+                                  <ul class="media-list list-inline">
+                                     <li> 
+                                         <div class="box-img-smallcircle">
+                                                 <a href="#" (click)="showInfo(item.HOB)">
+                                                     <img class="media-object img-circle img-responsive" src="./img/{{item.HOB.image}}">
+                                                </a>                                              
+                                         </div>
+                                         </li>
+                                          <li>
+                                              <div class="box-img-smallcircle">                                               
+                                                <a href="#" (click)="showInfo(item.AHOB)">
+                                                     <img class="media-object img-circle img-responsive" src="./img/{{item.AHOB.image}}">
+                                                </a>
+                                        </div>
+                                         </li>
+                                          <li>
+                                              <div class="box-img-smallcircle">                                               
+                                                <a href="#" (click)="showInfo(item.AHOB)">
+                                                     <img class="media-object img-circle img-responsive" src="./img/default_avatar.png">
+                                                </a>
+                                        </div>
+                                         </li>
+                                       <!--  <div class="media-body">
+                                             <div class="head-info">
+                                            <h1 class="name-HOB"><a href="#" (click)="showInfo(item.HOB)">{{item.HOB.name}}</a></h1>   
+                                             <h4 class="name-AHOB"><a href="#" (click)="showInfo(item.AHOB)">{{item.AHOB.name}}</a></h4>   
+                                             <h3 class="name-officeAdmin"><a href="#">{{item.officeAdmin}}</a></h3> 
+                                             </div>
+                                        </div>-->
+                                    
+                                </ul>
+                            </td>                           
+                         
+                            <td class="col textRight "><span>{{item.carryForward}}</span></td>
+                            <td class="col textRight "><span>{{item.bookingTarget}}</span></td>
+                            <td class="col textRight "><span>{{item.bookingCollect}}</span></td>
+                            <td class="col textRight "><span>{{item.bookingTotal}}</span></td>
+                            <td class="col textRight "><span>{{item.cancelNo}}</span></td>
+                            <td class="col textRight "><span>{{item.targetFI}}</span></td>
+                            <td class="col textRight "><span>{{item.finalFI}}</span></td>
+                            <td class="col textRight ">
+                                <div class="progress">
+                                 <div class="progress-bar progress-bar-info"  role="progressbar"  [ngStyle]="{width:item.percent}"  attr.aria-valuenow="{{item.percent| slice:0:item.percent.length -1}}" aria-valuemin="0" aria-valuemax="100">
+                                 {{item.percent}}</div>
+                                </div>
+                                </td>
                         </template>
 
                     </tr>

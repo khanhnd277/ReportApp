@@ -30,6 +30,28 @@ export class SalereportPage {
 
     this.listAllResults = [
       {
+        "branch": "VIET NAM",
+        "region": "VIET NAM",
+        "noOfSA": "50",
+        "HOB": {
+          "name": "REGION",
+          "mobile": ""
+        },
+        "AHOB": {
+          "name": "SUB",
+          "mobile": ""
+        },
+        "officeAdmin": "TOTAL",
+        "carryForward": "34",
+        "bookingTarget": "56",
+        "bookingCollect": "77",
+        "bookingTotal": "45",
+        "cancelNo": "8",
+        "targetFI": "88",
+        "finalFI": "56",
+        "percent": "50%"
+      },
+      {
         "branch": "HANOI",
         "region": "VIET NAM",
         "noOfSA": "12",
@@ -80,11 +102,11 @@ export class SalereportPage {
         "targetFI": "50",
         "finalFI": "34",
         "percent": "96%"
-      },
+      },      
       {
-        "branch": "VIET NAM",
-        "region": "VIET NAM",
-        "noOfSA": "50",
+        "branch": "MALAYSIA",
+        "region": "",
+        "noOfSA": "130",
         "HOB": {
           "name": "REGION",
           "mobile": ""
@@ -94,14 +116,14 @@ export class SalereportPage {
           "mobile": ""
         },
         "officeAdmin": "TOTAL",
-        "carryForward": "34",
-        "bookingTarget": "56",
-        "bookingCollect": "77",
-        "bookingTotal": "45",
-        "cancelNo": "8",
-        "targetFI": "88",
-        "finalFI": "56",
-        "percent": "50%"
+        "carryForward": "124",
+        "bookingTarget": "345",
+        "bookingCollect": "222",
+        "bookingTotal": "164",
+        "cancelNo": "59",
+        "targetFI": "300",
+        "finalFI": "200",
+        "percent": "66%"
       },
       {
         "branch": "KANGGOR",
@@ -180,29 +202,8 @@ export class SalereportPage {
         "targetFI": "98",
         "finalFI": "50",
         "percent": "49%"
-      },
-      {
-        "branch": "MALAYSIA",
-        "region": "",
-        "noOfSA": "130",
-        "HOB": {
-          "name": "REGION",
-          "mobile": ""
-        },
-        "AHOB": {
-          "name": "SUB",
-          "mobile": ""
-        },
-        "officeAdmin": "TOTAL",
-        "carryForward": "124",
-        "bookingTarget": "345",
-        "bookingCollect": "222",
-        "bookingTotal": "164",
-        "cancelNo": "59",
-        "targetFI": "300",
-        "finalFI": "200",
-        "percent": "66%"
       }
+      
     ];
 
     this.initializelistOutputBranch();
