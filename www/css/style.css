@@ -9,6 +9,18 @@
     margin: 0 auto;
 }
 
+.box-percent {
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.badge-info {
+    background: #4db53c !important;
+    margin-left: 5px;
+}
+
 .row-total {
     color: #444 !important;
     background: rgba(19, 20, 24, 0.15) !important;
@@ -76,9 +88,16 @@
     min-width: 235px;
 }
 
-.table-sales>tbody>tr>td span {
+.table-sales>tbody>tr>td p {
+    position: relative;
+    line-height: 60px;
+    margin: 0 auto;
+}
+
+.table-sales>tbody>tr>td.row-total p {
     line-height: 60px;
     position: relative;
+    margin: 0 auto;
 }
 
 .table-sales>tbody>tr>td .progress {
@@ -353,7 +372,7 @@
 }
 
 .table-sales thead tr th.lg {
-    min-width: 100px;
+    min-width: 135px;
 }
 
 .table-sales>tbody>tr>td {

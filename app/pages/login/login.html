@@ -12,34 +12,34 @@
 
 
 <ion-content padding class="wrapper-login">
-    <div class="box-login">
-        <div class="row box-logo-top">
-            <div class="box-img-logo">
-                <!-- <ion-icon class="img-logo" name="bonfire"></ion-icon> -->
-                <img src="./img/log-tcsys.png"> </div>
-            <ion-label class="lbl-nameproject">ETCM Sales</ion-label>
-        </div>
-        <ion-list class="list-input-control">
-            <ion-item>
-                <ion-label floating>
-                    <ion-icon class="ico-input" name="person"></ion-icon>Username</ion-label>
-                <ion-input type="text"></ion-input>
-            </ion-item>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+        <div class="box-login">
+            <div class="row box-logo-top">
+                <div class="box-img-logo">
+                    <img src="./img/log-tcsys.png"> </div>
+                <ion-label class="lbl-nameproject">ETCM Sales</ion-label>
+            </div>
+            <ion-list class="list-input-control">
+                <ion-item>
+                    <ion-label floating>
+                        <ion-icon class="ico-input" name="person"></ion-icon>Username</ion-label>
+                    <ion-input type="text"></ion-input>
+                </ion-item>
 
-            <ion-item>
-                <ion-label floating>
-                    <ion-icon class="ico-input" name="lock"></ion-icon>Password</ion-label>
-                <ion-input type="password"></ion-input>
-            </ion-item>
-            <ion-item style="display:none;"></ion-item>
-        </ion-list>
+                <ion-item>
+                    <ion-label floating>
+                        <ion-icon class="ico-input" name="lock"></ion-icon>Password</ion-label>
+                    <ion-input type="password"></ion-input>
+                </ion-item>
+                <ion-item style="display:none;"></ion-item>
+            </ion-list>
 
-        <div class="box-button">
-            <button round (click)="login()">Log In</button>
-        </div>
-        <div class="box-forget text-center">
-            <button class="btn-forget" clear>Forgot Password?</button>
+            <div class="box-button">
+                <button round (click)="login()">Log In</button>
+            </div>
+            <div class="box-forget text-center">
+                <button class="btn-forget" clear>Forgot Password?</button>
+            </div>
         </div>
     </div>
-
 </ion-content>
