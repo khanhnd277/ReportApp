@@ -68,7 +68,7 @@
                     <tr *ngFor="let item of listResults" data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
                         <template [ngIf]="isTotal(item.HOB.name) ">
                             <td class="col textCenter row-total "><p><span>{{item.branch}}</span><span class="badge badge-info">{{item.noOfSA}}</span></p></td>                            
-                            <td class="col textCenter row-total"></td>                           
+                            <td class="col textCenter row-total "></td>                           
                             <td class="col textRight row-total "><p><span>{{item.carryForward}}</span></p></td>
                             <td class="col textRight row-total "><p><span>{{item.bookingTarget}}</span></p></td>
                             <td class="col textRight row-total "><p><span>{{item.bookingCollect}}</span></p></td>
@@ -82,7 +82,7 @@
                                  {{item.percent}}</div>
                                 </div>-->
                                 <div class="box-percent">
-                                <div class="c100 p{{item.percent| slice:0:item.percent.length -1}} rose small"> 
+                                <div class="c100 p{{item.percent| slice:0:item.percent.length -1}} green small"> 
                                     <span>{{item.percent}}</span> 
                                      <div class="slice">
                                        <div class="bar"></div>
