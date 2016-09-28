@@ -70,13 +70,13 @@
                         
                         <template [ngIf]="isTotal(item.HOB.name) ">
                             <tr data-toggle="collapse" class="clickable" attr.data-target=".{{item.branch}}">
-                            <td class="col textCenter row-total "><p><span>{{item.branch}}</span><span class="badge badge-info">{{item.noOfSA}}</span></p></td>                            
+                            <td class="col textCenter row-total "><p><span>{{item.branch}}</span><br><span class="badge badge-info">{{item.noOfSA}}</span></p></td>                            
                             <td class="col textCenter row-total "><p><span>GRAND TOTAL</span></p></td>                           
                             <td class="col textRight row-total "><p><span>{{item.carryForward}}</span></p></td>
                             <td class="col textRight row-total "><p><span>{{item.bookingTarget}}</span></p></td>
                             <td class="col textRight row-total "><p><span>{{item.bookingCollect}}</span></p></td>
                             <td class="col textRight row-total "><p><span>{{item.bookingTotal}}</span></p></td>
-                            <td class="col textCenter row-total "><p><span class="badge badge-danger">{{item.cancelNo}}</span></p></td>
+                            <td class="col textRight row-total "><p><span class="badge badge-danger">{{item.cancelNo}}</span></p></td>
                             <td class="col textRight row-total "><p><span>{{item.targetFI}}</span></p></td>
                             <td class="col textRight row-total "><p><span>{{item.finalFI}}</span></p></td>
                             <td class="col textCenter row-total ">
@@ -99,27 +99,27 @@
                     <template [ngIf]="!isTotal(item.HOB.name) ">   
                     <tr class="{{item.region}} collapse {{(searchCondition == 'BRANCH' && searchValue != '')?'in':''}}" >       
                     <td class="col textCenter ">
-                        <p><span>{{item.branch}}</span><span class="badge badge-info">{{item.noOfSA}}</span></p>
+                        <p><span>{{item.branch}}</span><br><span class="badge badge-info">{{item.noOfSA}}</span></p>
                     </td>
 
                     <td class="col textCenter box-info-sum">
                         <ul class="media-list list-inline">
                             <li>
-                                <div class="box-img-smallcircle">
+                                <div class="box-img-smallcircle box-HOB">
                                     <a href="#" (click)="showInfo(item.HOB)">
                                         <img class="media-object img-circle img-responsive" src="./img/{{item.HOB.image}}">
                                     </a>
                                 </div>
                             </li>
                             <li>
-                                <div class="box-img-smallcircle">
+                                <div class="box-img-smallcircle box-AHOB">
                                     <a href="#" (click)="showInfo(item.AHOB)">
                                         <img class="media-object img-circle img-responsive" src="./img/{{item.AHOB.image}}">
                                     </a>
                                 </div>
                             </li>
                             <li>
-                                <div class="box-img-smallcircle">
+                                <div class="box-img-smallcircle box-OfficeAdmin ">
                                     <a href="#" (click)="showInfo(item.officeAdmin)">
                                         <img class="media-object img-circle img-responsive" src="./img/{{item.officeAdmin.image}}">
                                     </a>
@@ -140,7 +140,7 @@
                     <td class="col textRight ">
                         <p><span>{{item.bookingTotal}}</span></p>
                     </td>
-                    <td class="col textCenter ">
+                    <td class="col textRight ">
                         <p><span class="badge badge-danger">{{item.cancelNo}}</span></p>
                     </td>
                     <td class="col textRight ">
