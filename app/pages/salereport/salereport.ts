@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, ModalController } from 'ionic-angular';
 import { ModalContentPage } from '../modal-content/modal-content';
 
+declare var $: any;
+
 /*
   Generated class for the SalereportPage page.
 
@@ -30,7 +32,7 @@ export class SalereportPage {
 
     this.listAllResults = [
       {
-        "branch": "VIET NAM",
+        "branch": "VIETNAM",
         "region": "",
         "noOfSA": "50",
         "HOB": {
@@ -53,7 +55,7 @@ export class SalereportPage {
       },
       {
         "branch": "HANOI",
-        "region": "VIET NAM",
+        "region": "VIETNAM",
         "noOfSA": "12",
         "HOB": {
           "name": "Khanh",
@@ -84,7 +86,7 @@ export class SalereportPage {
       },
       {
         "branch": "HO CHI MINH",
-        "region": "VIET NAM",
+        "region": "VIETNAM",
         "noOfSA": "30",
         "HOB": {
           "name": "Tom Cruise",
@@ -103,7 +105,7 @@ export class SalereportPage {
           "mobile": "985985895",
           "image": "michael.jpg",
           "email": "michael@yahoo.com"
-        }, 
+        },
         "carryForward": "12",
         "bookingTarget": "22",
         "bookingCollect": "25",
@@ -112,7 +114,7 @@ export class SalereportPage {
         "targetFI": "50",
         "finalFI": "34",
         "percent": "96%"
-      },      
+      },
       {
         "branch": "MALAYSIA",
         "region": "",
@@ -228,7 +230,7 @@ export class SalereportPage {
         "finalFI": "50",
         "percent": "49%"
       }
-      
+
     ];
 
     this.initializelistOutputBranch();
@@ -275,6 +277,8 @@ export class SalereportPage {
   searchAll() {
     if (this.searchCondition == '') {
       this.listResults = this.listAllResults;
+    } else {
+      this.searchValue = '';
     }
   }
 
@@ -306,10 +310,11 @@ export class SalereportPage {
     setTimeout(() => {
       console.log('Async operation has ended');
       refresher.complete();
-    }, 2000);
+    }, 1000);
     //window.location.reload();
   }
 
 }
+
 
 
