@@ -268,7 +268,7 @@
     /*background: #70e1f5;
     background: -webkit-linear-gradient(to top, #70e1f5, #ffd194);
     background: linear-gradient(to top, #70e1f5, #ffd194);*/
-    background: #142030;
+    background: #222D33;
     /* background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../img/sea.jpg');
@@ -440,6 +440,6 @@
 
 .table-sales>tbody>tr>td {
     border: 1px solid #e7e7e7;
-    font-size: 12px;
+    font-size: 18px;
     color: #444;
 }
