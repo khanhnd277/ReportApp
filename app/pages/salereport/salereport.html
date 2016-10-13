@@ -24,7 +24,7 @@
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
-    <ion-list>
+    <!--<ion-list>
         <ion-item>
             <ion-label>Search</ion-label>
             <ion-select [(ngModel)]="searchCondition" (ionChange)="searchAll()">
@@ -46,7 +46,13 @@
                 </template>
             </ion-select>
         </ion-item>
-    </ion-list>
+    </ion-list>-->
+    <div class="list-select-date">
+        <ion-item>
+            <ion-label>Period</ion-label>
+            <ion-datetime displayFormat="MMMM YYYY" pickerFormat="MMMM YYYY"></ion-datetime>
+        </ion-item>
+    </div>
     <div class="div-reponsive ">
         <div class="reponsive-sm ">
             <table class="table-sales table table-bordered table-hover ">
